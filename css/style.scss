@@ -44,10 +44,19 @@ body {
   color: #ffffff;
   font-family: 'Product Sans';
   background: #000000;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  letter-spacing: -0.045em;
 }
 
 a {
   color: white;
+}
+
+i {
+  font-family: 'Product Sans Italic';
 }
 
 .loading-screen {
@@ -155,32 +164,62 @@ a {
   display: flex;
   position: relative;
 
+
+  &--no-effect {
+    justify-content: flex-end;
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: calc(100vw - 3.6em);
+    max-width: 1180px;
+  }
+
   @include tablet-landscape-down() {
     margin-top: 20px;
+
   }
 
   &__text {
     margin-top: 1rem;
     font-size: 10rem;
     width: 100%;
-    text-align: center;
+    text-align: left;
     font-family: 'Product Sans Bold';
-    padding-top: 1rem;
+    padding-top: 6rem;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
+
+    &--plain {
+      text-align: left;
+      display: block;
+      line-height: 1.04;
+      font-size: 9.8rem;
+      max-width: 577px;
+
+      @include phone-only() {
+        text-align: center;
+      }
+    }
 
     @media screen and (max-width: 1199px) {
       font-size: calc(6vw + 1.8rem);
     }
 
+    @include tablet-landscape-up() {
+      padding-top: 10rem;
+    }
+
     @include tablet-landscape-down() {
       flex-direction: column;
-      font-size: calc(8vw + 2.5rem);
+      font-size: calc(8vw + 2rem);
       align-items: center;
       justify-content: initial;
       margin-top: 1.8rem;
     }
+
 
     @include phone-only() {
       font-size: calc(10vw + 2.5rem);
@@ -364,7 +403,7 @@ a {
   font-size: 16px;
   border: 2px solid #202020;
   padding: 1.1rem 4.4rem;
-  background: transparent;
+  background: #000000;
   line-height: 1.5;
 
   &:hover {
@@ -373,9 +412,141 @@ a {
   }
 }
 
+.contact-info {
+  margin-top: 6.5rem;
 
+  dt {
+    font-size: 2rem;
+    line-height: 1.26;
+    padding-top: 6.5rem
+  }
 
+  dd {
+    font-family: 'Product Sans Bold';
+    font-size: 3rem;
+    padding-left: 0;
+    margin-left: 0;
+    line-height: 1.26;
+  }
 
+  @include phone-only() {
+    margin-top: 3.5rem;
+
+    dt {
+      font-size: 1.6rem;
+      padding-top: 4.5rem;
+    }
+
+    dd {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.say-hi-section {
+  margin-top: 6.5rem;
+
+  &__title {
+    color: var(--sole-primary);
+    font-size: 4rem;
+    line-height: 1.6;
+    text-align: center;
+
+    @include phone-only() {
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.contact-form {
+  margin-top: 9rem;
+  max-width: 645px;
+  padding-bottom: 12rem;
+
+  input,
+  textarea {
+    background: #000000;
+    display: block;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    border: 1px solid #202020;
+    box-sizing: border-box;
+
+    &:focus {
+      border: 1px solid var(--sole-primary);
+      outline: 0;
+    }
+  }
+
+  textarea {
+    min-height: 260px;
+  }
+}
+
+.office-address {
+
+  .office-address__container {
+    max-width: 320px;
+    float: right;
+    margin-right: 320px;
+    font-size: 2.5rem;
+    padding-top: 13rem;
+    padding-bottom: 13rem;
+
+  }
+
+  h5 {
+    line-height: 1.69;
+    font-family: 'Product Sans Bold';
+    margin: 0;
+  }
+
+  p {
+    line-height: 1.69;
+  }
+
+  br {
+    clear: both;
+  }
+
+  .divider {
+    border-color: var(--sole-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  @include tablet-landscape-down() {
+
+    .office-address__container {
+      margin-right: 0;
+      float: none;
+    }
+  }
+
+  @include phone-only() {
+    &.sole-section-pattern {
+      background: none;
+      min-height: initial;
+    }
+
+    .office-address__container {
+      width: 80%;
+      padding-top: 8rem;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    h5 {
+      font-size: 1.8rem;
+    }
+  }
+}
 
 
 /* utility classes */
@@ -385,7 +556,11 @@ a {
   margin-right: auto;
   padding-left: 1.8rem;
   padding-right: 1.8rem;
+}
 
+.w-100-container {
+  width: calc(100vw - 3.6rem);
+  max-width: 1180px;
 }
 
 .hide {
@@ -395,6 +570,10 @@ a {
 
 .color-primary {
   color: var(--sole-primary);
+}
+
+.bold-italic {
+  font-family: 'Product Sans Bold Italic';
 }
 
 .letter-effect {
@@ -410,4 +589,21 @@ a {
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap
+}
+
+.footer {
+  margin-top: 12rem;
+  border-top: 1px solid #2e2e2e;
+  padding-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-bottom: 3.5rem;
+  align-items: center;
+
+  @include tablet-landscape-down() {
+    margin-top: 9rem;
+    padding-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
 }

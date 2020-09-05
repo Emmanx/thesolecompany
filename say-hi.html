@@ -19,61 +19,56 @@
 		</div>
 		<div data-barba="wrapper">
 			<header class="header container">
-				<img class="logo" alt="logo" src="./img/logo.svg" />
+				<a href="index.html"
+					><img class="logo" alt="logo" src="./img/logo.svg"
+				/></a>
 				<a href="say-hi.html"
 					><button class="say-hi sole-btn">Say hi!</button></a
 				>
 			</header>
 			<main data-barba="container" data-barba-namespace="home">
-				<header class="intro-section sole-section-pattern">
-					<h1 class="container intro-section__text">
-						<span>brand </span>
-						<span class="slide">
-							experience
-							<span class="effect slide--current">experience</span
-							><span class="effect">strategy</span> </span
-						><span> design</span>
-					</h1>
-					<img class="intro-arrow" src="./img/arrow-down.svg" />
+				<header
+					class="intro-section intro-section--no-effect sole-section-pattern"
+				>
+					<div class="container">
+						<div class="intro-section__wrap">
+							<h1 class="intro-section__text intro-section__text--plain">
+								let's build you
+								<span class="bold-italic"
+									>an <span class="color-primary">experience</span></span
+								>
+							</h1>
+							<img class="intro-arrow" src="./img/arrow-down.svg" />
+						</div>
+					</div>
 				</header>
 				<section
-					class="about-section container sole-section-pattern sole-section-pattern--right"
+					class="say-hi-section sole-section-pattern sole-section-pattern--right"
 				>
-					<h2 class="heading heading--2">
-						We transform
-						<span class="color-primary">brands and people </span> through
-						original and intelligent designs
-					</h2>
-					<p class="paragraph">
-						We are a design-driven startup company delivering value to small,
-						medium, and large-scaled companies through brand strategy, user
-						experience & interactive design, and, web development.
-					</p>
-					<p class="paragraph">
-						We believe in the craft of authentic and unique design solutions
-						that portray your brand values and makes it standout amongst others.
-					</p>
-				</section>
-				<section class="what-we-do container sole-section-pattern">
-					<div class="arrow-heading">
-						<img class="arrow-section" src="./img/arrow-right.svg" />
-						<h3 class="heading heading--3 color-primary">What we do</h3>
-					</div>
-					<div class="section-content">
-						<h2 class="heading heading--2">
-							Design & <br />
-							Development
-						</h2>
-						<ul class="list">
-							<li>Brand Strategy & Identity</li>
-							<li>Naming & Tagline Development</li>
-							<hr class="divider divider--primary" />
-							<li>User Experience</li>
-							<li>Web, Interactive Design</li>
-							<li>Software Development</li>
-						</ul>
+					<div class="container">
+						<h5 class="say-hi-section__title">Say hi!</h5>
 
-						<button class="sole-outline-btn">Work with us</button>
+						<form class="contact-form" action="">
+							<input type="text" placeholder="Full Name" name="name" />
+							<input type="email" placeholder="Your Email" name="email" />
+							<textarea
+								name="message"
+								placeholder="What do you want to build?"
+							></textarea>
+							<button class="sole-outline-btn" type="submit">Send</button>
+						</form>
+					</div>
+				</section>
+				<section class="office-address sole-section-pattern">
+					<div class="container">
+						<div class="w-100-container">
+							<div class="office-address__container">
+								<h5>Our Office:</h5>
+								<hr class="divider" />
+								<p>13B Adebowale Sebanjo Street, Magodo Gate - Phase 2</p>
+							</div>
+						</div>
+						<br />
 					</div>
 				</section>
 				<section class="contact-info container">
