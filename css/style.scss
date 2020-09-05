@@ -59,8 +59,24 @@ i {
   font-family: 'Product Sans Italic';
 }
 
+//page transition css
+.page-transition {
+  height: 100vh;
+  width: 100vw;
+  background: var(--sole-primary);
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  transform: scaleX(0) skewX(0);
+  transform-origin: top right;
+}
+
+
+
 .loading-screen {
   position: fixed;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;

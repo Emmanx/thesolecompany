@@ -1,11 +1,48 @@
+let loadingScreen = document.querySelector('.loading-screen');
+
+setTimeout(() => {
+	loadingScreen.classList.add('hide');
+}, 3000);
 //possible performance drawback by playing in background continously?
-// var animation = bodymovin.loadAnimation({
-// 	container: document.querySelector('.loading-screen__animation'),
-// 	renderer: 'svg',
-// 	loop: true,
-// 	autoplay: true,
-// 	path: '../data_.json',
-// });
+var animation = bodymovin.loadAnimation({
+	container: document.querySelector('.loading-screen__animation'),
+	renderer: 'svg',
+	loop: true,
+	autoplay: true,
+	path: '../data_.json',
+});
+
+function pageTransitionIn() {
+	return gsap.to('.page-transition', {
+		duration: 0.5,
+		scaleX: 1,
+		transformOrigin: 'bottom right',
+	});
+}
+
+function pageTransitionOut() {
+	return gsap.timeline({ delay: 1 }).to('.page-transition', {
+		duration: 0.5,
+		scaleX: 0,
+		skewX: 0,
+		transformOrigin: 'top left',
+		ease: 'power1.out',
+	});
+}
+
+barba.init({
+	transitions: [
+		{
+			name: 'say-hi',
+			leave() {
+				pageTransitionOut();
+			},
+			enter() {
+				pageTransitionIn();
+			},
+		},
+	],
+});
 
 class Slide {
 	constructor(el) {
