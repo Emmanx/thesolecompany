@@ -180,9 +180,12 @@ function pageTransitionOut() {
 			ease: 'power1.out',
 		})
 		.then(() => {
-			let slide = new TextSlide(document.querySelector('.slide'));
-			slide.stop();
-			slide.play();
+			let slideNode = document.querySelector('.slide');
+			if (slideNode) {
+				let slide = new TextSlide(slideNode);
+				slide.stop();
+				slide.play();
+			}
 			// sequence page animations
 			slideUpAnimation();
 			lineAnimation();
