@@ -12,69 +12,104 @@
 		<link rel="stylesheet" href="css/fonts.css" />
 		<link href="css/style.css" rel="stylesheet" />
 	</head>
-	<body data-loading="true">
-		<div class="loading-screen hide">
+	<body class="is-loading">
+		<div class="loading-screen">
 			<div class="loading-screen__animation"></div>
 			<p class="loading-screen__loading-text">Loading...</p>
 		</div>
 		<div class="page-transition"></div>
 		<div data-barba="wrapper">
 			<header class="header container">
-				<img class="logo" alt="logo" src="./img/logo.svg" />
-				<a href="say-hi.html"
-					><button class="say-hi sole-btn">Say hi!</button></a
-				>
+				<span class="oh">
+					<span class="js-t-line-head">
+						<a href="index.html"
+							><img class="logo" alt="logo" src="./img/logo.svg"
+						/></a>
+					</span>
+				</span>
+				<span class="oh">
+					<span class="js-t-line-head">
+						<a href="say-hi.html"
+							><button class="say-hi sole-btn">Say hi!</button></a
+						>
+					</span>
+				</span>
 			</header>
 			<main data-barba="container" data-barba-namespace="home">
 				<header class="intro-section sole-section-pattern">
 					<h1 class="container intro-section__text">
-						<span>brand </span>
+						<span
+							><span class="oh"
+								><span class="js-t-line-stg">brand</span></span
+							></span
+						>
 						<span class="slide">
 							experience
 							<span class="effect slide--current">experience</span
 							><span class="effect">strategy</span> </span
-						><span> design</span>
+						><span>
+							<span class="oh"
+								><span class="js-t-line-stg">design</span></span
+							></span
+						>
 					</h1>
 					<img class="intro-arrow" src="./img/arrow-down.svg" />
 				</header>
 				<section
-					class="about-section container sole-section-pattern sole-section-pattern--right"
+					class="about-section sole-section-pattern sole-section-pattern--right"
 				>
-					<h2 class="heading heading--2">
-						We transform
-						<span class="color-primary">brands and people </span> through
-						original and intelligent designs
-					</h2>
-					<p class="paragraph">
-						We are a design-driven startup company delivering value to small,
-						medium, and large-scaled companies through brand strategy, user
-						experience & interactive design, and, web development.
-					</p>
-					<p class="paragraph">
-						We believe in the craft of authentic and unique design solutions
-						that portray your brand values and makes it standout amongst others.
-					</p>
-				</section>
-				<section class="what-we-do container sole-section-pattern">
-					<div class="arrow-heading">
-						<img class="arrow-section" src="./img/arrow-right.svg" />
-						<h3 class="heading heading--3 color-primary">What we do</h3>
-					</div>
-					<div class="section-content">
+					<div class="container">
 						<h2 class="heading heading--2">
-							Design & <br />
-							Development
+							We transform
+							<span class="color-primary">brands and people </span> through
+							original and intelligent designs
 						</h2>
-						<ul class="list">
-							<li>Brand Strategy & Identity</li>
-							<li>Naming & Tagline Development</li>
-							<hr class="divider divider--primary" />
-							<li>User Experience</li>
-							<li>Web, Interactive Design</li>
-							<li>Software Development</li>
-						</ul>
+						<p class="paragraph">
+							We are a design-driven startup company delivering value to small,
+							medium, and large-scaled companies through brand strategy, user
+							experience & interactive design, and, web development.
+						</p>
+						<p class="paragraph">
+							We believe in the craft of authentic and unique design solutions
+							that portray your brand values and makes it standout amongst
+							others.
+						</p>
+					</div>
+				</section>
+				<section class="what-we-do sole-section-pattern">
+					<div class="container">
+						<div class="arrow-heading">
+							<img class="arrow-section" src="./img/arrow-right.svg" />
+							<span class="oh"
+								><span class="js-t-line"
+									><h3 class="heading heading--3 color-primary">
+										What we do
+									</h3></span
+								></span
+							>
+						</div>
+						<div class="section-content">
+							<span class="oh">
+								<span class="js-t-line">
+									<h2 class="heading heading--2">
+										Design & <br />
+										Development
+									</h2>
+								</span>
+							</span>
+							<ul class="list">
+								<li class="slide-up-reveal">Brand Strategy & Identity</li>
+								<li class="slide-up-reveal">Naming & Tagline Development</li>
+								<span class="divider divider--primary"></span>
+								<li class="slide-up-reveal">User Experience</li>
+								<li class="slide-up-reveal">Web, Interactive Design</li>
+								<li class="slide-up-reveal">Software Development</li>
+							</ul>
 
-						<button class="sole-outline-btn">Work with us</button>
+							<a href="say-hi.html"
+								><button class="sole-outline-btn">Work with us</button></a
+							>
+						</div>
 					</div>
 				</section>
 				<section class="contact-info container">
@@ -84,10 +119,16 @@
 						<dt>Talk to us:</dt>
 						<dd>+234 0816 911 7651</dd>
 						<dt>Find us on:</dt>
-						<dd>Instagram, LinkedIn, Dribbble, Facebook</dd>
+						<dd>
+							<a href="https://instagram.com/sole.company">Instagram</a>,
+							<a href="https://www.linkedin.com/company/28186183">LinkedIn</a>,
+							<a href="https://dribbble.com/TheSoleCompany">Dribbble</a>,
+							<a href="https://facebook.com/TheSoleCompanyFacebook">Facebook</a>
+						</dd>
 					</dl>
 				</section>
 				<footer class="footer container">
+					<span class="divider"></span>
 					<p>&copy; 2020 The Sole Company</p>
 					<a class="color-primary" href="say-hi.html">say hi!</a>
 				</footer>
@@ -95,6 +136,7 @@
 		</div>
 
 		<script src="js/lottie.min.js"></script>
+		<script src="js/ScrollTrigger.min.js"></script>
 		<script src="js/gsap.js"></script>
 		<script src="js/barba.js"></script>
 		<script src="js/charming.min.js"></script>

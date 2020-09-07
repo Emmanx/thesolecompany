@@ -1,8 +1,3 @@
-let loadingScreen = document.querySelector('.loading-screen');
-
-setTimeout(() => {
-	loadingScreen.classList.add('hide');
-}, 3000);
 //possible performance drawback by playing in background continously?
 var animation = bodymovin.loadAnimation({
 	container: document.querySelector('.loading-screen__animation'),
@@ -11,6 +6,98 @@ var animation = bodymovin.loadAnimation({
 	autoplay: true,
 	path: '../data_.json',
 });
+
+gsap.registerPlugin(ScrollTrigger);
+
+// let moveIn = gsap
+// 	.to('.js-t-line', {
+// 		scrollTrigger: 'js-t-line',
+// 		duration: 1,
+// 		y: 0,
+// 		ease: 'ease-out',
+// 	})
+// 	.pause();
+
+//remake nodes with animation classes
+function slideUpAnimationWrapper(selector) {
+	let upForAnim = document.querySelectorAll(selector);
+	upForAnim.forEach((el) => {
+		let content = el.textContent;
+		let fragment = new DocumentFragment();
+		var oh = document.createElement('span');
+		oh.classList.add('oh');
+		var jsT = document.createElement('span');
+		jsT.classList.add('js-t-line');
+		jsT.textContent = content;
+		oh.appendChild(jsT);
+		fragment.appendChild(oh);
+		el.textContent = '';
+		el.appendChild(fragment);
+	});
+}
+
+slideUpAnimationWrapper('.slide-up-reveal');
+
+function slideUpAnimation() {
+	gsap.utils.toArray('.js-t-line').forEach((el) => {
+		gsap.to(el, {
+			scrollTrigger: {
+				trigger: el,
+				once: false,
+			},
+			delay: 0.3,
+			duration: 1,
+			ease: 'expo',
+			y: 0,
+			onComplete: () => console.log('Im done'),
+		});
+	});
+}
+
+function lineAnimation() {
+	gsap.utils.toArray('.divider').forEach((el) => {
+		gsap.to(el, {
+			scrollTrigger: {
+				trigger: el,
+			},
+			delay: 0.3,
+			duration: 1.5,
+			ease: 'expo',
+			width: '100%',
+		});
+	});
+}
+
+function otherAnimations() {
+	gsap.to('.js-t-line-head', {
+		duration: 1,
+		ease: 'expo',
+		y: 0,
+		stagger: 0.2,
+	});
+
+	gsap.to('.js-t-line-stg', {
+		duration: 1,
+		ease: 'expo',
+		y: 0,
+		delay: 0.5,
+		stagger: 0.3,
+	});
+}
+
+window.onload = () => {
+	setTimeout(() => {
+		pageTransitionIn().then(() => {
+			document.querySelector('body').classList.remove('is-loading');
+		});
+		pageTransitionOut().then(() => {
+			// sequence page animations
+			slideUpAnimation();
+			lineAnimation();
+			otherAnimations();
+		});
+	}, 1000);
+};
 
 function pageTransitionIn() {
 	return gsap.to('.page-transition', {
@@ -39,6 +126,8 @@ barba.init({
 			},
 			enter() {
 				pageTransitionIn();
+				let slide = new TextSlide(document.querySelector('.slide'));
+				slide.play();
 			},
 		},
 	],

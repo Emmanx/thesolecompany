@@ -53,6 +53,7 @@ h1 {
 
 a {
   color: white;
+  text-decoration: none;
 }
 
 i {
@@ -82,10 +83,14 @@ i {
   width: 100%;
   height: 100vh;
   background: #000000;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  .is-loading & {
+    display: flex;
+  }
 
   &__animation {
     width: 180px;
@@ -206,7 +211,7 @@ i {
     padding-top: 6rem;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-end;
 
     &--plain {
       text-align: left;
@@ -331,12 +336,17 @@ i {
 
 .what-we-do {
   margin-top: 15rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 
   @include phone-only() {
-    display: block;
+    .container {
+      display: block;
+    }
   }
 }
 
@@ -359,12 +369,15 @@ i {
   max-width: 465px;
   flex-basis: 465px;
   text-align: left;
+  margin-right: 12rem;
 
   .sole-outline-btn {
     margin-top: 7rem;
   }
 
   @include tablet-landscape-down() {
+    margin-right: initial;
+
     .heading--2 {
       padding-top: 3rem;
     }
@@ -401,10 +414,15 @@ i {
 .divider {
   margin-top: 4rem;
   margin-bottom: 4rem;
-  border-width: 0.5px;
+  border-width: 0;
+  height: 1px;
+  display: block;
+  text-align: left;
+  background: #2e2e2e;
+  width: 0%; //for animation
 
   &--primary {
-    border-color: var(--sole-primary);
+    background: var(--sole-primary);
   }
 
   @include phone-only() {
@@ -443,6 +461,31 @@ i {
     padding-left: 0;
     margin-left: 0;
     line-height: 1.26;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background: var(--sole-primary);
+      transition: 0.3s width ease-in;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+        transition: 0.3s width ease-in;
+
+      }
+    }
   }
 
   @include phone-only() {
@@ -592,6 +635,20 @@ i {
   font-family: 'Product Sans Bold Italic';
 }
 
+.oh {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.js-t-line,
+.js-t-line-head,
+.js-t-line-stg {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+//others
+
 .letter-effect {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -609,17 +666,29 @@ i {
 
 .footer {
   margin-top: 12rem;
-  border-top: 1px solid #2e2e2e;
   padding-top: 3rem;
   display: flex;
   justify-content: space-between;
   font-size: 15px;
   margin-bottom: 3.5rem;
   align-items: center;
+  position: relative;
+
+  .divider {
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 
   @include tablet-landscape-down() {
     margin-top: 9rem;
     padding-top: 2rem;
     margin-bottom: 2.5rem;
   }
+}
+
+//animation styling
+.gsap-up-in {
+  transform: scaleY(0);
 }
