@@ -635,6 +635,7 @@ i {
   font-family: 'Product Sans Bold Italic';
 }
 
+//animation supporting classes
 .oh {
   overflow: hidden;
   display: inline-block;
@@ -645,6 +646,11 @@ i {
 .js-t-line-stg {
   display: inline-block;
   transform: translateY(100%);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-100px);
 }
 
 //others

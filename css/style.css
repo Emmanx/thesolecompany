@@ -695,6 +695,12 @@ i {
           transform: translateY(100%);
 }
 
+.slide-in-left {
+  opacity: 0;
+  -webkit-transform: translateX(-100px);
+          transform: translateX(-100px);
+}
+
 .letter-effect {
   display: -ms-flexbox;
   display: -webkit-box;
