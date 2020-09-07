@@ -149,6 +149,7 @@ function otherAnimations() {
 		delay: 0.5,
 		stagger: 0.3,
 	});
+	console.log('other aniamtions ==>');
 }
 
 window.onload = () => {
@@ -199,8 +200,6 @@ barba.init({
 			},
 			enter() {
 				pageTransitionIn();
-				let slide = new TextSlide(document.querySelector('.slide'));
-				slide.play();
 			},
 		},
 	],
