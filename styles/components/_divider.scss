@@ -1,0 +1,19 @@
+.divider {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  border-width: 0;
+  height: 1px;
+  display: block;
+  text-align: left;
+  background: #2e2e2e;
+  width: 0%; //for animation
+
+  &--primary {
+    background: var(--sole-primary);
+  }
+
+  @include phone-only() {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
+}

@@ -1,0 +1,119 @@
+//Utility classes
+.container {
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
+}
+
+.w-100-container {
+  width: calc(100vw - 3.6rem);
+  max-width: 1180px;
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+}
+
+.color-primary {
+  color: var(--sole-primary);
+}
+
+.bold-italic {
+  font-family: 'Product Sans Bold Italic';
+}
+
+
+.heading {
+  font-size: 5rem;
+  line-height: 1.31;
+  font-family: 'Product Sans Bold';
+  margin: 0;
+
+  @include tablet-landscape-down() {
+    font-size: 3.6rem;
+  }
+
+  &--3 {
+    font-size: 4.2rem;
+
+    @include tablet-landscape-down() {
+      font-size: 2.8rem;
+    }
+  }
+}
+
+.paragraph {
+  font-size: 2.4rem;
+  line-height: 1.69;
+  padding-top: 5rem;
+  margin: 0;
+
+  @include tablet-landscape-down() {
+    font-size: 1.8rem;
+    padding-top: 3.5rem;
+  }
+}
+
+//animation supporting utility classes
+.slide {
+  position: relative;
+  padding: 0 1rem;
+  color: transparent;
+  display: flex;
+  justify-content: center;
+}
+
+.oh {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.js-t-line,
+.js-t-line-head,
+.js-t-line-stg {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.letter-effect {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap
+}
+
+///sections with sole-company background pattern
+.sole-section-pattern {
+  min-height: 475px;
+  background: no-repeat 0 100% url('../img/sole-company-pattern.svg');
+  background-size: 550px;
+
+  @include tablet-landscape-down() {
+    background-size: 350px;
+    background-position: left 110px;
+  }
+
+  &--right {
+    background-position: right bottom;
+
+    @include tablet-landscape-down() {
+      background-size: 350px;
+    }
+  }
+}

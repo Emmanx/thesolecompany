@@ -1,0 +1,42 @@
+//page transition css
+.page-transition {
+  height: 100vh;
+  width: 100vw;
+  background: var(--sole-primary);
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  right: 0;
+  transform: scaleX(0) skewX(0);
+  transform-origin: top right;
+}
+
+.loading-screen {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: #000000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .is-loading & {
+    display: flex;
+  }
+
+  &__animation {
+    width: 180px;
+    height: 180px;
+  }
+
+  &__loading-text {
+    color: white;
+    font-family: 'Product Sans';
+    margin-top: -40px;
+    font-size: 1.8rem;
+  }
+}

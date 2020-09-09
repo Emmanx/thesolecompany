@@ -1,0 +1,60 @@
+.office-address {
+
+  .office-address__container {
+    max-width: 320px;
+    float: right;
+    margin-right: 320px;
+    font-size: 2.5rem;
+    padding-top: 13rem;
+    padding-bottom: 13rem;
+
+  }
+
+  h5 {
+    line-height: 1.69;
+    font-family: 'Product Sans Bold';
+    margin: 0;
+  }
+
+  p {
+    line-height: 1.69;
+  }
+
+  br {
+    clear: both;
+  }
+
+  .divider {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  @include tablet-landscape-down() {
+
+    .office-address__container {
+      margin-right: 0;
+      float: none;
+    }
+  }
+
+  @include phone-only() {
+    &.sole-section-pattern {
+      background: none;
+      min-height: initial;
+    }
+
+    .office-address__container {
+      width: 80%;
+      padding-top: 8rem;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1.8rem;
+    }
+
+    h5 {
+      font-size: 1.8rem;
+    }
+  }
+}

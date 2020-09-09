@@ -1,0 +1,135 @@
+.intro-section {
+  margin-top: 70px;
+  display: flex;
+  position: relative;
+
+  @include phone-only() {
+    &.sole-section-pattern {
+      min-height: 300px;
+    }
+  }
+
+  &--no-effect {
+    justify-content: flex-end;
+
+    //to be refactored
+    .intro-arrow {
+      animation: arrowDown-mobile 1.5s infinite;
+    }
+  }
+
+  &__wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: calc(100vw - 3.6em);
+    max-width: 1180px;
+  }
+
+  @include tablet-landscape-down() {
+    margin-top: 20px;
+
+  }
+
+  &__text {
+    margin-top: 1rem;
+    font-size: 10rem;
+    width: 100%;
+    text-align: left;
+    font-family: 'Product Sans Bold';
+    padding-top: 6rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    &--plain {
+      text-align: left;
+      display: block;
+      line-height: 1.04;
+      font-size: 9.4rem;
+      max-width: 577px;
+
+      @include phone-only() {
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 1199px) {
+      font-size: calc(6vw + 1.8rem);
+    }
+
+    @include tablet-landscape-up() {
+      padding-top: 10rem;
+    }
+
+    @include tablet-landscape-down() {
+      flex-direction: column;
+      font-size: calc(8vw + 2rem);
+      align-items: center;
+      justify-content: initial;
+      margin-top: 1.8rem;
+    }
+
+
+    @include phone-only() {
+      font-size: calc(10vw + 1.6rem);
+    }
+
+
+
+    .effect {
+      display: flex;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      color: var(--sole-primary);
+      font-family: 'Product Sans Bold Italic';
+
+      &:not(.slide--current) {
+        pointer-events: none;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.intro-arrow {
+  margin-top: 5rem;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform-origin: center;
+  transform: translateX(-50%);
+  animation: arrowDown 1.5s infinite;
+  animation-timing-function: ease-in-out;
+
+  @include tablet-landscape-down() {
+    width: 24px;
+  }
+
+  @include phone-only() {
+    width: 16px;
+    bottom: 0;
+    animation: arrowDown-mobile 1.5s infinite;
+
+  }
+}
+
+@keyframes arrowDown {
+  0% {
+    bottom: 10%;
+  }
+
+  100% {
+    bottom: -5%;
+  }
+}
+
+@keyframes arrowDown-mobile {
+  0% {
+    bottom: 0%;
+  }
+
+  100% {
+    bottom: -10%;
+  }
+}

@@ -1,0 +1,55 @@
+.contact-info {
+  margin-top: 6.5rem;
+
+  dt {
+    font-size: 2rem;
+    line-height: 1.26;
+    padding-top: 6.5rem
+  }
+
+  dd {
+    font-family: 'Product Sans Bold';
+    font-size: 3rem;
+    padding-left: 0;
+    margin-left: 0;
+    line-height: 1.26;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background: var(--sole-primary);
+      transition: 0.3s width ease-in;
+    }
+
+    &:hover {
+      &::before {
+        width: 100%;
+        transition: 0.3s width ease-in;
+
+      }
+    }
+  }
+
+  @include phone-only() {
+    margin-top: 3.5rem;
+
+    dt {
+      font-size: 1.6rem;
+      padding-top: 4.5rem;
+    }
+
+    dd {
+      font-size: 2.4rem;
+    }
+  }
+}
