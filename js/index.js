@@ -149,7 +149,14 @@ function otherAnimations() {
 		delay: 0.5,
 		stagger: 0.3,
 	});
-	console.log('other aniamtions ==>');
+	gsap.from('.arrow-section', {
+		duration: 1,
+		ease: 'expo',
+		delay: 0.3,
+		opacity: 0,
+		x: -30,
+		scrollTrigger: '.arrow-section',
+	});
 }
 
 window.onload = () => {
@@ -203,6 +210,7 @@ barba.init({
 			},
 			enter() {
 				pageTransitionIn();
+				slideUpAnimationWrapper('.slide-up-reveal');
 			},
 		},
 	],

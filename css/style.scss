@@ -185,9 +185,19 @@ i {
   display: flex;
   position: relative;
 
+  @include phone-only() {
+    &.sole-section-pattern {
+      min-height: 300px;
+    }
+  }
 
   &--no-effect {
     justify-content: flex-end;
+
+    //to be refactored
+    .intro-arrow {
+      animation: arrowDown-mobile 1.5s infinite;
+    }
   }
 
   &__wrap {
@@ -217,7 +227,7 @@ i {
       text-align: left;
       display: block;
       line-height: 1.04;
-      font-size: 9.8rem;
+      font-size: 9.4rem;
       max-width: 577px;
 
       @include phone-only() {
@@ -243,7 +253,7 @@ i {
 
 
     @include phone-only() {
-      font-size: calc(10vw + 2.5rem);
+      font-size: calc(10vw + 1.6rem);
     }
 
 
@@ -277,6 +287,13 @@ i {
   @include tablet-landscape-down() {
     width: 24px;
   }
+
+  @include phone-only() {
+    width: 16px;
+    bottom: 0;
+    animation: arrowDown-mobile 1.5s infinite;
+
+  }
 }
 
 @keyframes arrowDown {
@@ -286,6 +303,16 @@ i {
 
   100% {
     bottom: -5%;
+  }
+}
+
+@keyframes arrowDown-mobile {
+  0% {
+    bottom: 0%;
+  }
+
+  100% {
+    bottom: -10%;
   }
 }
 
@@ -503,7 +530,7 @@ i {
 }
 
 .say-hi-section {
-  margin-top: 6.5rem;
+  margin-top: 10.5rem;
 
   &__title {
     color: var(--sole-primary);
@@ -514,6 +541,10 @@ i {
     @include phone-only() {
       font-size: 3.2rem;
     }
+  }
+
+  @include phone-only() {
+    margin-top: 6.5rem;
   }
 }
 
