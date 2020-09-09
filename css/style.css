@@ -796,4 +796,20 @@ i {
   -webkit-transform: scaleY(0);
           transform: scaleY(0);
 }
+
+.cursor {
+  width: 40px;
+  height: 40px;
+  background: black;
+  mix-blend-mode: exclusion;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 300;
+}
+
+.cursor--blend {
+  background: white;
+}
 /*# sourceMappingURL=style.css.map */

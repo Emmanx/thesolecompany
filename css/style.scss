@@ -729,3 +729,21 @@ i {
 .gsap-up-in {
   transform: scaleY(0);
 }
+
+//custom cursor styles
+.cursor {
+  width: 40px;
+  height: 40px;
+  background: black;
+  mix-blend-mode: exclusion;
+  border: 1px solid #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 300;
+
+
+  &--blend {
+    background: white;
+  }
+}

@@ -135,12 +135,16 @@ function slideInLeftAnimation() {
 }
 
 function otherAnimations() {
-	gsap.to('.js-t-line-head', {
-		duration: 1,
-		ease: 'expo',
-		y: 0,
-		stagger: 0.2,
-	});
+	gsap
+		.to('.js-t-line-head', {
+			duration: 1,
+			ease: 'expo',
+			y: 0,
+			stagger: 0.2,
+		})
+		.then(() =>
+			document.querySelector('.intro-arrow').classList.remove('hide')
+		);
 
 	gsap.to('.js-t-line-stg', {
 		duration: 1,
@@ -164,7 +168,9 @@ window.onload = () => {
 		pageTransitionIn().then(() => {
 			document.querySelector('body').classList.remove('is-loading');
 		});
-		pageTransitionOut();
+		pageTransitionOut().then(() => {
+			makeCustomCursor();
+		});
 	}, 1000);
 };
 
@@ -201,6 +207,88 @@ function pageTransitionOut() {
 		});
 }
 
+//custom cursor
+let cursor = document.querySelector('.cursor');
+
+let xMousePos = -200;
+let yMousePos = -200;
+let lastScrolledTop = 0;
+gsap.to(cursor, {
+	x: xMousePos,
+	y: yMousePos,
+});
+
+function makeCustomCursor() {
+	if (!window.matchMedia('(pointer: fine)').matches) {
+		return;
+	}
+	cursor.classList.remove('hide');
+
+	let hoverable = document.querySelectorAll('.hoverable, a, button');
+	let cursorBlend = document.querySelectorAll(
+		'button, h1, h2, h3, h4, h5, p, a, li, dt, img, span'
+	);
+
+	function updateCursorScroll(e) {
+		if (lastScrolledTop != document.querySelector('html').scrollTop) {
+			yMousePos -= lastScrolledTop;
+			lastScrolledTop = document.querySelector('html').scrollTop;
+			yMousePos += lastScrolledTop;
+			console.log(yMousePos, lastScrolledTop);
+		}
+
+		gsap.to('.cursor', {
+			y: yMousePos - 15,
+		});
+	}
+
+	function onMouseMove(e) {
+		xMousePos = e.pageX;
+		yMousePos = e.pageY;
+
+		gsap.to('.cursor', {
+			duration: 0.3,
+			x: xMousePos - 15,
+			y: yMousePos - 15,
+			ease: 'slow',
+		});
+	}
+
+	function onMouseEnter(e) {
+		console.log('==> in');
+		gsap.to('.cursor', {
+			duration: 0.5,
+			scale: 0.5,
+		});
+	}
+
+	function onMouseLeave(e) {
+		gsap.to('.cursor', {
+			duration: 0.5,
+			scale: 1,
+		});
+	}
+
+	function cursorBlendIn(e) {
+		cursor.classList.add('cursor--blend');
+	}
+	function cursorBlendOut(e) {
+		cursor.classList.remove('cursor--blend');
+	}
+
+	document.addEventListener('mousemove', onMouseMove);
+	window.addEventListener('scroll', updateCursorScroll);
+	hoverable.forEach((el) => {
+		el.addEventListener('mouseenter', onMouseEnter);
+		el.addEventListener('mouseleave', onMouseLeave);
+	});
+
+	cursorBlend.forEach((el) => {
+		el.addEventListener('mouseenter', cursorBlendIn);
+		el.addEventListener('mouseleave', cursorBlendOut);
+	});
+}
+
 barba.init({
 	transitions: [
 		{
@@ -211,6 +299,7 @@ barba.init({
 			enter() {
 				pageTransitionIn();
 				slideUpAnimationWrapper('.slide-up-reveal');
+				makeCustomCursor();
 			},
 		},
 	],
